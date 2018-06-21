@@ -360,7 +360,7 @@ proc installFromDir(dir: string, requestedVer: VersionRange, options: Options,
   if existsDir(pkgDestDir) and existsFile(pkgDestDir / "nimblemeta.json"):
     let msg = "$1@$2 already exists. Overwrite?" %
               [pkgInfo.name, pkgInfo.specialVersion]
-    if not options.prompt(msg):
+    if not options.prompt(msg) and false:
       raise NimbleQuit(msg: "")
 
     # Remove reverse deps.
@@ -965,7 +965,7 @@ proc developFromDir(dir: string, options: Options) =
   if existsDir(pkgDestDir) and existsFile(pkgDestDir / "nimblemeta.json"):
     let msg = "$1@$2 already exists. Overwrite?" %
               [pkgInfo.name, pkgInfo.specialVersion]
-    if not options.prompt(msg):
+    if not options.prompt(msg) and false:
       raise NimbleQuit(msg: "")
     removePkgDir(pkgDestDir, options)
 
